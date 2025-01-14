@@ -3,46 +3,19 @@ import json
 import os
 import pprint
 import sys
+import time
 from dotenv import load_dotenv
+import openai
 from rich.console import Console
 from rich.theme import Theme
 from rich.markdown import Markdown
 from openai import OpenAI
+import prompts as Prompts
 
-
-pp = pprint.PrettyPrinter()
+pp = pprint.PrettyPrinter(4,compact=True)
 
 # Die For You, The Weeknd & Ariana Grande
 
-def build_method_one_direct_estimation_prompt(song_name, artist_name):
-    return f""""
-        Based on your subjective understanding of music, estimate the emotional valence (positivity/negativity) and arousal (intensity/energy) for the song titled '{song_name}' by {artist_name}. Provide your estimate as two numbers between 0 and 1: one for valence and one for arousal. Use this format: Valence: X.XX, Arousal: X.XX.
-        """
-
-def build_method_two_5_word_descriptions(song_name, artist_name):
-    return f""""
-        Provide five descriptive words that capture the emotional tone and mood of the song titled '{song_name}' by {artist_name}. Focus on words that reflect the song's emotional qualities. Please avoid repeating similar words.
-        """
-
-def build_method_three_long_form_description_prompt(song_name, artist_name):
-    return f"""
-        Task:
-        Analyze the song "{song_name}" by "{artist_name}" to identify the emotional content conveyed in the song. You can look at lyrics, analyses, reviews, interviews, fan discussions, and more. Based on your analysis, provide five descriptive words that accurately capture the song’s emotions.
-        
-        Output:
-        Your output must be strictly in readable JSON format without any extra text:
-
-        {{
-        "words":
-        [word1, word2, word3, word4, word5],
-        "reasons":
-            [reason for word1, reason for word2, reason for word3, reason for word4, reason for word5]
-        }}
-
-        Requirements:
-        For the ‘outputs’ field, enter the words that accurately describe the emotional content of the song. No words should be repeated for the song. For the ‘reasons’ field, provide reasoning for each word separately. The reason for each word should be in the same order as the word.
-        If you do not know the answer to a question, do not share false information. Instead, you should enter None for the ‘words’ and ‘reasons’ field.
-"""
 
 class GenerateChatGPTDescriptions:
     load_dotenv()
@@ -54,14 +27,23 @@ class GenerateChatGPTDescriptions:
         self.client = OpenAI(api_key=self.api_key)
         
     def generate_chatgpt_response(self, prompt):
-        response = self.client.chat.completions.create(
-            model="gpt-4o",
-            messages=[{"role": "user", "content": f"{prompt}"}],    
-        )
-        return self.deserialize_response(response.model_dump_json())
+        try:
+            response = self.client.chat.completions.create(
+                model="gpt-4o",
+                messages=[{"role": "user", "content": f"{prompt}"}], 
+                response_format={ "type": "json_object" }
+                )
+        except Exception as e:
+            print(f"Error: {e}")
+        
+        return self.deserialize_response(response.choices[0].message.content)
 
     def deserialize_response(self, response):
         return json.loads(response)
+    
+    
+    
+
 
 def main():
     custom_theme = Theme({
@@ -70,8 +52,10 @@ def main():
         "arousal": "#7DF9FF"
         })
     
+    client = GenerateChatGPTDescriptions()
     console = Console(theme=custom_theme)   
     
+    # TODO: put prompts in a separate file
     console.print("""Welcome to the Billboard Chart Annotator.\n
     This application queries ChatGPT to gather pseudo-emotional values ([valence]valence[/valence], [arousal]arousal[/arousal]) for songs on the Billboard Hot 100 and Billboard 200 charts.""")
     console.print("""       
@@ -87,21 +71,60 @@ def main():
     
     console.print("Making test queries...")
     
-    client = GenerateChatGPTDescriptions()
-    direct_estimation_prompt = build_method_one_direct_estimation_prompt("Die For You", "The Weeknd & Ariana Grande")
-    five_word_description_prompt = build_method_two_5_word_descriptions("Die For You", "The Weeknd & Ariana Grande")
-    long_form_description_prompt = build_method_three_long_form_description_prompt("Die For You", "The Weeknd & Ariana Grande")
     
-    prompts = [direct_estimation_prompt, five_word_description_prompt, long_form_description_prompt]
+    with open('test_datasets/test_bb.json', 'r') as f:
+        test_data = json.load(f)
     
-    for prompt in prompts:
-        response = client.generate_chatgpt_response(prompt)
-        description = response["choices"][0]["message"]["content"]
-        pp.pprint(description)
-        print()
-        print()
-        print(type(description))
+
+    song_list = [] 
+    for song in test_data:
+        song_name = song.get("Song")
+        artist_name = song.get("Artist")
+        console.print(f"Processing song: {song_name} by {artist_name}")
+        
+        song_data = {
+            "prompts": [],
+            "song_name": song_name,
+            "artist_name": artist_name,
+            "date": song.get("Date")
+        }
+        
+        direct_estimation_prompt = Prompts.build_method_one_direct_estimation_prompt(song_name, artist_name)
+        five_word_description_prompt = Prompts.build_method_two_5_word_descriptions(song_name, artist_name)
+        long_form_description_prompt = Prompts.build_method_three_long_form_description_prompt(song_name, artist_name)
+        
+        prompts = [direct_estimation_prompt, five_word_description_prompt, long_form_description_prompt]
+        
+        annotated_response = []
+        for prompt in prompts:
+            try:
+                response = client.generate_chatgpt_response(prompt)
+                annotated_response.append(response)
+            except openai.error.RateLimitError:
+                print("Rate limit exceeded. Retrying in 20 seconds...")
+                time.sleep(20)
+                response = client.generate_chatgpt_response(prompt)
+            except openai.error.APIError as e:
+                print(f"OpenAI API Error: {e}")
+                return None
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+                return None
+        
+        song_data["prompts"] = annotated_response
+        song_data["song_name"] = song_name
+        song_data["artist_name"] = artist_name
+        song_data["date"] = song.get("Date")
+        # pp.pprint(song_data)
+        
+        song_list.append(song_data)
+        pp.pprint(song_list)
+        
     
+    # convert song_list to JSON and write to file
+    with open('test_datasets/test.json', 'w') as f:
+        json.dump(song_list, f, indent=4)          
+            
 
 if __name__ == "__main__":
     main()
