@@ -45,13 +45,14 @@ def main():
     console.print("Making test queries...")
     
     # init the datasets to be loaded, needs to have flag that determines if it has been a annotated or not
-    with open('test_datasets/hot100_test.json', 'r') as f:
+    with open('test_datasets/test_bb.json', 'r') as f:
         test_data = json.load(f)
-    
+
 
     # iterate through the songs, annotate, build objects, add array, write to file
     song_list = [] 
     for song in test_data:
+    
         song_name = song.get("Song")
         artist_name = song.get("Artist")
         console.print(f"Processing song: {song_name} by {artist_name}")
@@ -94,17 +95,15 @@ def main():
         song_data["song_name"] = song_name
         song_data["artist_name"] = artist_name
         song_data["date"] = song.get("Date")
-        # pp.pprint(song_data)
         
         song_list.append(song_data)
         pp.pprint(song_list)
+        pp.pprint(f"song processed: {song}")
         
-    
+        
         # convert song_list to JSON and write to file
-        client.write_batched_json(song_list, 5, "test_datasets/1_27_25/", "hot100_batch_test")
-    # with open('test_datasets/test.json', 'w') as f:
-    #     json.dump(song_list, f, indent=4)          
-            
+        client.write_batched_json(song_list, 11, "test_datasets/1_27_25/", "hot100_batch_test")     
+                
 
 if __name__ == "__main__":
     main()

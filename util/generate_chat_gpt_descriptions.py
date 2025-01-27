@@ -53,7 +53,7 @@ class GenerateChatGPTDescriptions:
         return json.loads(response)
 
 
-    def write_batched_json(song_list, batch_size, output_directory, output_prefix):
+    def write_batched_json(self, song_list, batch_size, output_directory, output_prefix):
         """
         Write a list of items to multiple JSON files in batches.
 
