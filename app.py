@@ -42,7 +42,6 @@ def main():
         ChatGPT creates a detailed emotional description of each song. Key words from the description are matched to XANEW scores, and the averages are used to determine emotional attributes.
                   """
                   )
-    
     console.print("Making test queries...")
     
     # init the datasets to be loaded, needs to have flag that determines if it has been a annotated or not
