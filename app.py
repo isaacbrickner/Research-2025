@@ -2,14 +2,10 @@
 import json
 import os
 import pprint
-import sys
 import time
-from dotenv import load_dotenv
 import openai
 from rich.console import Console
 from rich.theme import Theme
-from rich.markdown import Markdown
-from openai import OpenAI
 from util.generate_chat_gpt_descriptions import GenerateChatGPTDescriptions
 import util.prompts as Prompts
 
