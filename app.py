@@ -102,8 +102,8 @@ def main():
         
         
         # convert song_list to JSON and write to file
-        client.write_batched_json(song_list, 11, "test_datasets/1_27_25/", "hot100_batch_test")     
-                
+        client.write_batched_json(song_list, 11, "test_datasets/1_27_25/", "hot100_batch_test_5")     
+        
 
 if __name__ == "__main__":
     main()
