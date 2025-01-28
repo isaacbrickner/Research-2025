@@ -24,7 +24,6 @@ def main():
     console = Console(theme=custom_theme)   
     
     # TODO: put prompts in a separate file/greeting/logging/info tbd...
-    
     console.print("""Welcome to the Billboard Chart Annotator.\n
     This application queries ChatGPT to gather pseudo-emotional values ([valence]valence[/valence], [arousal]arousal[/arousal]) for songs on the Billboard Hot 100 and Billboard 200 charts.""")
     console.print("""       

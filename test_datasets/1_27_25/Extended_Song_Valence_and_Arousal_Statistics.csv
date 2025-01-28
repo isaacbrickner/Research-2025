@@ -1,0 +1,12 @@
+,song_name,artist_name,valence_mean,valence_std,arousal_mean,arousal_std,valence_range,arousal_range,valence_max,valence_min,arousal_max,arousal_min
+0,Big Energy,Latto,0.85,0.0,0.9,0.0,0.0,0.0,0.85,0.85,0.9,0.9
+1,Cuff It,Beyonce,0.85,0.0,0.76,0.022,0.0,0.05,0.85,0.85,0.8,0.75
+2,Die For You,The Weeknd & Ariana Grande,0.59,0.042,0.7,0.035,0.1,0.1,0.65,0.55,0.75,0.65
+3,Free Mind,Tems,0.684,0.048,0.58,0.045,0.1,0.1,0.75,0.65,0.65,0.55
+4,In A Minute,Lil Baby,0.58,0.045,0.81,0.042,0.1,0.1,0.65,0.55,0.85,0.75
+5,Last Last,Burna Boy,0.56,0.042,0.74,0.022,0.1,0.05,0.6000000000000001,0.5,0.75,0.7000000000000001
+6,Left And Right,Charlie Puth Featuring Jung Kook,0.744,0.013,0.65,0.0,0.03,0.0,0.75,0.72,0.65,0.65
+7,Son Of A Sinner,Jelly Roll,0.46,0.055,0.61,0.022,0.15,0.05,0.55,0.4,0.65,0.6000000000000001
+8,Thank God,Kane Brown With Katelyn Brown,0.83,0.027,0.61,0.022,0.05,0.05,0.85,0.8,0.65,0.6000000000000001
+9,Victoria's Secret,Jax,0.69,0.055,0.72,0.045,0.1,0.1,0.75,0.65,0.75,0.65
+10,What My World Spins Around,Jordan Davis,0.75,0.0,0.65,0.0,0.0,0.0,0.75,0.75,0.65,0.65
