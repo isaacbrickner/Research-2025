@@ -7,7 +7,8 @@
         "Last Week": 54,
         "Peak Position": 13,
         "Weeks in Charts": 8,
-        "Image URL": "https://charts-static.billboard.com/img/2022/08/beyonce-0na-cuffit-sb9-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/08/beyonce-0na-cuffit-sb9-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -17,7 +18,8 @@
         "Last Week": 41,
         "Peak Position": 37,
         "Weeks in Charts": 10,
-        "Image URL": "https://charts-static.billboard.com/img/2016/12/the-weeknd-jlk-dieforyou-ix0-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2016/12/the-weeknd-jlk-dieforyou-ix0-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -27,7 +29,8 @@
         "Last Week": 52,
         "Peak Position": 38,
         "Weeks in Charts": 10,
-        "Image URL": "https://charts-static.billboard.com/img/2022/07/jax-6vn-victoriassecret-745-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/07/jax-6vn-victoriassecret-745-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -37,7 +40,8 @@
         "Last Week": 38,
         "Peak Position": 22,
         "Weeks in Charts": 4,
-        "Image URL": "https://charts-static.billboard.com/img/2022/09/kane-brown-dqa-thankgod-qyu-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/09/kane-brown-dqa-thankgod-qyu-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -47,7 +51,8 @@
         "Last Week": 31,
         "Peak Position": 31,
         "Weeks in Charts": 14,
-        "Image URL": "https://charts-static.billboard.com/img/2021/10/jelly-roll-z4p-sonofasinner-f0f-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2021/10/jelly-roll-z4p-sonofasinner-f0f-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -57,7 +62,8 @@
         "Last Week": 37,
         "Peak Position": 3,
         "Weeks in Charts": 50,
-        "Image URL": "https://charts-static.billboard.com/img/2021/10/latto-80q-big-energy-89t-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2021/10/latto-80q-big-energy-89t-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -67,7 +73,8 @@
         "Last Week": 46,
         "Peak Position": 42,
         "Weeks in Charts": 8,
-        "Image URL": "https://charts-static.billboard.com/img/2022/06/jordan-davis-wxd-whatmyworldspinsaround-3ix-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/06/jordan-davis-wxd-whatmyworldspinsaround-3ix-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -77,7 +84,8 @@
         "Last Week": 40,
         "Peak Position": 14,
         "Weeks in Charts": 26,
-        "Image URL": "https://charts-static.billboard.com/img/2022/04/lilbaby-kyx-inaminute-7uc-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/04/lilbaby-kyx-inaminute-7uc-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -87,7 +95,8 @@
         "Last Week": 49,
         "Peak Position": 44,
         "Weeks in Charts": 13,
-        "Image URL": "https://charts-static.billboard.com/img/2022/05/burna-boy-8ej-last-last-ld2-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/05/burna-boy-8ej-last-last-ld2-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -97,7 +106,8 @@
         "Last Week": 43,
         "Peak Position": 22,
         "Weeks in Charts": 15,
-        "Image URL": "https://charts-static.billboard.com/img/2022/07/charlie-puth-9ci-leftandright-pbm-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2022/07/charlie-puth-9ci-leftandright-pbm-180x180.jpg",
+        "processed": false
     },
     {
         "Date": "2022-10-12",
@@ -107,6 +117,7 @@
         "Last Week": 50,
         "Peak Position": 46,
         "Weeks in Charts": 12,
-        "Image URL": "https://charts-static.billboard.com/img/2021/05/tems-67h-180x180.jpg"
+        "Image URL": "https://charts-static.billboard.com/img/2021/05/tems-67h-180x180.jpg",
+        "processed": false
     }
 ]

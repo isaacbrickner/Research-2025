@@ -1,0 +1,397 @@
+[
+    {
+        "prompts": [
+            {
+                "valence": 0.85,
+                "arousal": 0.8
+            },
+            {
+                "words": [
+                    "joyful",
+                    "romantic",
+                    "celebratory",
+                    "carefree",
+                    "sensual"
+                ],
+                "reasons": [
+                    "The song's upbeat tempo and lively melodies convey a sense of happiness and joy.",
+                    "The lyrics focus on love and connection, creating a romantic atmosphere.",
+                    "The song's themes of partying and enjoyment reflect a celebratory mood.",
+                    "The carefree attitude expressed in the song encourages living in the moment.",
+                    "The sensual language and rhythmic beat contribute to a sensual vibe."
+                ]
+            },
+            {
+                "paragraph": "Beyonc\u00e9's 'Cuff It' exudes an upbeat and celebratory emotional tone, characterized by its infectious groove and joyous lyrics that invite listeners to let loose and enjoy the moment. The song wraps feelings of love, freedom, and exhilaration into its catchy melody and dynamic arrangement, uplifting spirits and encouraging a carefree experience.",
+                "reasons": [
+                    "Reason 1: The lively, disco-inspired rhythm creates an energetic and joyful atmosphere, making listeners feel the urge to dance and celebrate.",
+                    "Reason 2: Beyonc\u00e9's powerful and confident vocal delivery adds a layer of excitement and passion, conveying a sense of empowerment and freedom.",
+                    "Reason 3: The uplifting lyrics focus on themes of love, fun, and letting go, encouraging listeners to embrace the joy of the present moment.",
+                    "Reason 4: The instrumentation, featuring vibrant brass sections and a funky bassline, adds richness to the song, enhancing its festive and exuberant feel.",
+                    "Reason 5: The song's production quality provides a polished, immersive sound experience that amplifies its overall emotional impact and resonates with listeners."
+                ]
+            }
+        ],
+        "song_name": "Cuff It",
+        "artist_name": "Beyonce",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.6,
+                "arousal": 0.7
+            },
+            {
+                "words": [
+                    "longing",
+                    "regretful",
+                    "passionate",
+                    "melancholic",
+                    "vulnerable"
+                ],
+                "reasons": [
+                    "The lyrics express a deep yearning and desire for someone, highlighting a sense of longing throughout the song.",
+                    "There is a recurring theme of looking back and feeling remorse for past actions, which conveys a regretful tone.",
+                    "The song embodies intense emotions and fervency in the expressions of love, making it passionate.",
+                    "Its overall tone carries a sadness and reflective nature, adding a melancholic feeling to the song.",
+                    "Both artists convey emotional openness and sensitivity in their delivery, illustrating a sense of vulnerability."
+                ]
+            },
+            {
+                "paragraph": "The song 'Die For You' by The Weeknd and Ariana Grande captures the turmoil and longing present in a tumultuous relationship, highlighting emotions of regret, love, and vulnerability. The duet brings together their powerful yet emotive vocals, supported by a poignant melody and atmospheric instrumentation, which accentuates the complex emotional narrative of the lyrics. The collaboration introduces a dialogue between the two artists that underscores the themes of emotional sacrifice and unresolved feelings.",
+                "reasons": [
+                    "Reason 1: The lyrics vividly portray the emotional conflict and depth of devotion in the narrative, illustrating the willingness to endure pain for the sake of love.",
+                    "Reason 2: The melding of The Weeknd's and Ariana Grande's vocals creates a sense of duality and harmony, emphasizing the shared emotional struggle between two parties.",
+                    "Reason 3: The melody, with its melancholic and somewhat haunting quality, underscores the song's themes of longing and emotional turmoil.",
+                    "Reason 4: The production employs atmospheric and layered instrumentation, adding a sense of depth and intensity, which heightens the emotional impact of the song.",
+                    "Reason 5: The dynamic build-up and release throughout the song structure mirror the tension and relief present in a heartfelt and complex relationship journey."
+                ]
+            }
+        ],
+        "song_name": "Die For You",
+        "artist_name": "The Weeknd & Ariana Grande",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.65,
+                "arousal": 0.75
+            },
+            {
+                "words": [
+                    "empowerment",
+                    "frustration",
+                    "awareness",
+                    "liberation",
+                    "confidence"
+                ],
+                "reasons": [
+                    "The song promotes body positivity and encourages listeners to feel empowered regardless of societal beauty standards.",
+                    "It conveys frustration with the unrealistic ideals imposed by companies and media on young people, particularly women.",
+                    "The song raises awareness about how these beauty standards are constructed and often unattainable.",
+                    "It embodies a sense of liberation from the pressures of conforming to expected norms and encourages self-acceptance.",
+                    "The message is ultimately about having confidence in oneself and rejecting external validation based on appearance."
+                ]
+            },
+            {
+                "paragraph": "The song 'Victoria's Secret' by Jax is a raw and empowering anthem that addresses the emotional struggles linked to body image and self-acceptance. Through its candid lyrics and upbeat melody, the song captures a sense of rebellion against unrealistic beauty standards imposed by society. The vocal performance adds a genuine and heartfelt expression, while the instrumentation supports the energetic and liberating mood of the track.",
+                "reasons": [
+                    "Reason 1: The lyrics directly confront and criticize societal expectations, creating an emotional response of defiance and empowerment, as they challenge the idea of perfect beauty marketed by brands like 'Victoria's Secret'.",
+                    "Reason 2: The upbeat and catchy melody provides a sense of optimism and strength, contrasting the serious theme of the lyrics and enhancing the feeling of liberation.",
+                    "Reason 3: Jax's vocal delivery is filled with clarity and conviction, which amplifies the sincerity and emotional impact of the message, making the listener feel more connected and understood.",
+                    "Reason 4: The instrumentation, characterized by a driving beat and lively arrangement, complements the assertive tone of the song, reinforcing the message of standing against superficial beauty norms.",
+                    "Reason 5: The song's structure, with its memorable chorus and dynamic shifts, allows for an emotional journey that encourages resilience and self-love, leaving a lasting impression of confidence and rebellion."
+                ]
+            }
+        ],
+        "song_name": "Victoria's Secret",
+        "artist_name": "Jax",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.8,
+                "arousal": 0.65
+            },
+            {
+                "words": [
+                    "grateful",
+                    "romantic",
+                    "uplifting",
+                    "devoted",
+                    "joyful"
+                ],
+                "reasons": [
+                    "The song expresses gratitude, as both singers thank God for having each other in their lives.",
+                    "The lyrics convey a strong sense of romance, highlighting the love between the couple.",
+                    "The overall tone of the song is uplifting, as it celebrates the positivity and happiness in their relationship.",
+                    "The singers show devotion to each other, emphasizing their commitment and everlasting bond.",
+                    "The song conveys a joyful emotion through its lively and heartfelt expression of love and thankfulness."
+                ]
+            },
+            {
+                "paragraph": "The song 'Thank God' by Kane Brown featuring Katelyn Brown is a heartfelt ode to gratitude and love. The lyrics express deep appreciation for a partner, highlighting the sense of joy and contentment found in their relationship. The melodious duet between the Browns adds a layer of intimacy, making the expression of emotions more profound and personal. The instrumentation enhances the emotional appeal by providing a soothing backdrop that complements the tender vocal delivery.",
+                "reasons": [
+                    "Reason 1: The lyrics articulate a sense of thankfulness and deep admiration for a loved one, which conveys strong positive emotions like love and gratitude.",
+                    "Reason 2: The melody of the song is gentle and flowing, underscoring the affectionate and heartfelt message conveyed in the lyrics, thereby enhancing the emotional connection.",
+                    "Reason 3: The vocal harmony between Kane and Katelyn Brown amplifies the emotive quality of the song, as their voices blend seamlessly to deliver the song's central theme of gratitude.",
+                    "Reason 4: The vocal performance is warm and sincere, adding authenticity to the emotional expression of the lyrics and making the listener feel the depth of the singers' appreciation.",
+                    "Reason 5: The instrumentation, featuring soft acoustic elements, provides a calming and comforting atmosphere that supports the emotional warmth of the narrative."
+                ]
+            }
+        ],
+        "song_name": "Thank God",
+        "artist_name": "Kane Brown With Katelyn Brown",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.45,
+                "arousal": 0.6
+            },
+            {
+                "words": [
+                    "reflective",
+                    "regretful",
+                    "yearning",
+                    "conflicted",
+                    "resilient"
+                ],
+                "reasons": [
+                    "The lyrics of the song often express introspection about the artist's life choices and experiences, leading to a contemplative tone.",
+                    "There is a recurring theme of regret over past actions and acknowledgment of mistakes, especially related to the artist's struggles.",
+                    "The artist conveys a deep longing for redemption and a desire to overcome personal demons, which is a central emotional aspect of the song.",
+                    "The lyrics reflect an inner struggle between continuing on a troubled path and seeking a better life, highlighting the artist's internal conflict.",
+                    "Despite the challenges and setbacks explored in the song, there is an underlying tone of perseverance and determination to push through adversity."
+                ]
+            },
+            {
+                "paragraph": "Jelly Roll's 'Son Of A Sinner' is an evocative exploration of personal redemption and the struggle between darkness and light. The song conveys themes of inner conflict, vulnerability, and the pursuit of salvation through its heartfelt lyrics and emotionally charged delivery. The melancholic melody combined with soulful vocals and a delicate instrumental arrangement captures the emotional depth of the artist's journey towards self-acceptance and redemption.",
+                "reasons": [
+                    "Reason 1: The poignant lyrics describe the internal battle between right and wrong, capturing the listener's empathy and understanding of personal struggles.",
+                    "Reason 2: Jelly Roll's raw and soulful vocal delivery enhances the emotional gravitas of the song, making the listener feel the authenticity and pain underlying the narrative.",
+                    "Reason 3: The melody's melancholic tone, with its slow tempo and minor key, emphasizes the song's themes of introspection and longing.",
+                    "Reason 4: The instrumentation, with its soft acoustic guitar and subtle percussion, provides a gentle and supportive backdrop that allows the emotional weight of the vocals to take center stage.",
+                    "Reason 5: The song's structure, including its build-up to a powerful chorus, mirrors the emotional journey from despair towards hope, enhancing the impact of the narrative arc."
+                ]
+            }
+        ],
+        "song_name": "Son Of A Sinner",
+        "artist_name": "Jelly Roll",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.85,
+                "arousal": 0.9
+            },
+            {
+                "words": [
+                    "empowering",
+                    "confident",
+                    "playful",
+                    "upbeat",
+                    "bold"
+                ],
+                "reasons": [
+                    "The song conveys a sense of empowerment, encouraging listeners to embrace their own energy and presence.",
+                    "Latto's lyrics express self-assurance and self-belief, exuding confidence throughout the track.",
+                    "The playful nature of the song is evident in its catchy rhythm and lyrical style that doesn't take itself too seriously.",
+                    "The song has an upbeat tempo and lively production, which contributes to a positive and energetic vibe.",
+                    "Latto delivers bold lyrics with strong personality, making a statement and leaving a powerful impression."
+                ]
+            },
+            {
+                "paragraph": "None",
+                "reasons": [
+                    "None",
+                    "None",
+                    "None",
+                    "None",
+                    "None"
+                ]
+            }
+        ],
+        "song_name": "Big Energy",
+        "artist_name": "Latto",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.75,
+                "arousal": 0.65
+            },
+            {
+                "words": [
+                    "romantic",
+                    "joyful",
+                    "content",
+                    "grateful",
+                    "sentimental"
+                ],
+                "reasons": [
+                    "The song expresses deep love and affection for someone special in the singer's life, focusing on their importance and presence.",
+                    "There is an overall feeling of happiness as the singer reflects on the connection with their significant other, highlighting uplifting themes.",
+                    "The lyrics convey a sense of satisfaction and tranquility with the situation and relationship described, suggesting a peaceful state of mind.",
+                    "The singer expresses thankfulness and appreciation for the person they are singing about, emphasizing how they enhance the singer's life.",
+                    "The song has a nostalgic element, as it reflects on meaningful moments and the lasting impact they have on the singer's emotional world."
+                ]
+            },
+            {
+                "paragraph": null,
+                "reasons": null
+            }
+        ],
+        "song_name": "What My World Spins Around",
+        "artist_name": "Jordan Davis",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.55,
+                "arousal": 0.8
+            },
+            {
+                "words": [
+                    "introspective",
+                    "resilient",
+                    "ambitious",
+                    "conflicted",
+                    "reflective"
+                ],
+                "reasons": [
+                    "The song features lyrics that delve into the artist\u2019s personal thoughts and experiences, indicating a deep level of self-reflection and contemplation.",
+                    "Lil Baby discusses overcoming challenges and setbacks, showcasing a strong sense of determination and resolve.",
+                    "The song highlights themes of striving for success and achieving goals, reflecting a strong sense of ambition.",
+                    "Lil Baby expresses various emotions and struggles, suggesting an internal conflict between his current reality and past experiences.",
+                    "Throughout the song, there are moments where Lil Baby looks back at his journey and decisions, offering a reflective narrative."
+                ]
+            },
+            {
+                "paragraph": null,
+                "reasons": null
+            }
+        ],
+        "song_name": "In A Minute",
+        "artist_name": "Lil Baby",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.6,
+                "arousal": 0.75
+            },
+            {
+                "words": [
+                    "heartbreak",
+                    "resilience",
+                    "nostalgia",
+                    "regret",
+                    "acceptance"
+                ],
+                "reasons": [
+                    "The song conveys feelings of heartbreak as it discusses the end of a relationship and the emotional turmoil that follows.",
+                    "Despite the sadness, there is a sense of resilience as the artist reflects on moving forward and finding strength beyond the pain.",
+                    "Nostalgia is expressed through the reminiscing of past moments and memories with the loved one, adding to the emotional depth.",
+                    "There is an element of regret for how things turned out, highlighting the artist's introspection on past actions and decisions.",
+                    "The song ultimately reaches a point of acceptance, where the artist comes to terms with the end of the relationship and the need to move on."
+                ]
+            },
+            {
+                "paragraph": "Burna Boy's 'Last Last' provides a deeply emotional exploration of heartbreak, resilience, and introspection. The song encapsulates the essence of facing personal struggles and moving on with an unwavering spirit. Through its powerful lyrics, haunting melody, and emotive vocal delivery, 'Last Last' takes the listener on a journey of both despair and hope. The Afrobeat instrumentation adds a unique texture, enhancing the emotional gravity of the overall composition.",
+                "reasons": [
+                    "Reason 1: The lyrics of 'Last Last' vividly express Burna Boy's personal heartache and the universal pain of loss, making the emotional content highly relatable and impactful.",
+                    "Reason 2: The melody of the song features a melancholic yet uplifting progression that reflects the contrasting emotions of sadness and eventual hope.",
+                    "Reason 3: Burna Boy's vocal performance adds an intense emotional layer, with his delivery blending both vulnerability and strength, capturing the listener's attention.",
+                    "Reason 4: The Afrobeat instrumentation, with its rhythmic and percussive elements, provides a dynamic backdrop that amplifies the emotional depth of the song, making it both engaging and stirring.",
+                    "Reason 5: The production quality enhances the emotional intensity by providing clarity and resonance to each element, ensuring that the song's emotional message is effectively conveyed to the audience."
+                ]
+            }
+        ],
+        "song_name": "Last Last",
+        "artist_name": "Burna Boy",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.75,
+                "arousal": 0.65
+            },
+            {
+                "words": [
+                    "nostalgic",
+                    "longing",
+                    "playful",
+                    "romantic",
+                    "yearning"
+                ],
+                "reasons": [
+                    "The song reflects on past memories with someone, bringing back feelings of nostalgia.",
+                    "The lyrics express a sense of wanting or missing someone dearly.",
+                    "The melody and rhythm have a light, fun quality that feels playful and upbeat.",
+                    "There is an underlying romantic theme as it discusses emotions tied to a special connection.",
+                    "The song conveys a deep desire for emotional closeness and reconnection."
+                ]
+            },
+            {
+                "paragraph": "The song 'Left And Right' by Charlie Puth featuring Jung Kook conveys the emotional turmoil and the lingering memories of past love. The lyrics explore the constant presence of a former lover occupying the protagonist's thoughts, creating a sense of nostalgia and yearning. Musically, the song combines upbeat rhythms with a catchy melody to contrast the bittersweet lyrical content, leading to a complex emotional experience that blends melancholy with a sense of playful yearning.",
+                "reasons": [
+                    "Reason 1: The lyrics illustrate the emotional struggle of moving on from a relationship, emphasizing the persistence of memories and the longing associated with them, which adds depth to the emotional impact.",
+                    "Reason 2: The vocal performances by both Charlie Puth and Jung Kook convey vulnerability and sincerity, enhancing the emotional resonance with their heartfelt delivery and distinctive vocal timbres.",
+                    "Reason 3: The melody balances a sense of upbeat catchiness with emotional expression, allowing the song to maintain a lighthearted feel while exploring deeper emotional themes.",
+                    "Reason 4: The instrumentation, featuring rhythmic bass lines and vibrant beats, creates an energetic backdrop that juxtaposes the poignancy of the lyrics, adding complexity to the overall emotional tone.",
+                    "Reason 5: The production elements, such as the strategic use of pauses and dynamic shifts, contribute to the song's emotional intensity by highlighting moments of introspection and emotional tension."
+                ]
+            }
+        ],
+        "song_name": "Left And Right",
+        "artist_name": "Charlie Puth Featuring Jung Kook",
+        "date": "2022-10-12"
+    },
+    {
+        "prompts": [
+            {
+                "valence": 0.65,
+                "arousal": 0.55
+            },
+            {
+                "words": [
+                    "introspective",
+                    "liberating",
+                    "yearning",
+                    "hopeful",
+                    "resilient"
+                ],
+                "reasons": [
+                    "The song engages in deep self-reflection and reveals Tems' inner thoughts and struggles, making it introspective.",
+                    "Through its lyrics expressing a desire to break free from mental restrictions, the song conveys a sense of liberation.",
+                    "Tems' expressions of longing for peace and understanding infuse the song with an emotional yearning.",
+                    "The song carries a hopeful tone with its message of overcoming struggles and seeking betterment.",
+                    "Despite the challenges depicted, there's an underlying strength in the song, manifesting resilience."
+                ]
+            },
+            {
+                "paragraph": "Free Mind by Tems is a song that delves into themes of introspection, liberation, and an emotional journey towards mental freedom. The lyrics express a longing for peace and clarity, reflecting an internal struggle to break free from mental burdens. Coupled with the music's soothing and atmospheric quality, the song captures a profound emotional depth, yearning, and hope for personal liberation.",
+                "reasons": [
+                    "Reason 1: The lyrics are introspective and personal, conveying a strong sense of yearning and desire for mental clarity and peace, which is a central emotional theme of the song.",
+                    "Reason 2: The melody has a calming and soothing quality, which enhances the emotional theme of seeking peace and serenity amidst mental turmoil.",
+                    "Reason 3: Tems' vocal delivery is both powerful and gentle, effectively conveying vulnerability and strength, which adds layers of emotional complexity to the song.",
+                    "Reason 4: The instrumentation, with its minimalistic and ambient sounds, creates an atmospheric backdrop that allows the emotional and lyrical content to shine, supporting the theme of introspection.",
+                    "Reason 5: The production quality and arrangement ensure that the focus remains on the vocals and lyrics, enhancing the song's emotional intensity and connection with the listener."
+                ]
+            }
+        ],
+        "song_name": "Free Mind",
+        "artist_name": "Tems",
+        "date": "2022-10-12"
+    }
+]

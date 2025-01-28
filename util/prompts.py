@@ -18,7 +18,7 @@ def build_method_one_direct_estimation_prompt(song_name, artist_name):
         
 #         """
 
-def build_method_two_long_form_description_prompt(song_name, artist_name):
+def build_method_two_5_word_descriptions(song_name, artist_name):
     return f"""
         Task:
         Analyze the song "{song_name}" by "{artist_name}" to identify the emotional content conveyed in the song. You can look at lyrics, analyses, reviews, interviews, fan discussions, and more. Based on your analysis, provide five descriptive words that accurately capture the song’s emotions. 
