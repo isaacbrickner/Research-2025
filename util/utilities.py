@@ -30,9 +30,10 @@ def save_json(file_path, data):
         json.dump(data, file, indent=4)
 
 # Assign unique ID and value
-def update_json_objects(data, start_id=1):
-    for index, obj in enumerate(data):
-        obj['id'] = start_id + index  # Incremental ID
+def update_json_objects(data):
+    for obj in data:
+        unique_string = f"{obj['Song']}_{obj['Artist']}"
+        obj['id'] = str(uuid.uuid5(uuid.NAMESPACE_DNS, unique_string))
     return data
 
 
