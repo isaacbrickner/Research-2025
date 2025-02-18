@@ -55,7 +55,7 @@ def contains_null_values(data):
         return any(contains_null_values(v) for v in data.values())
     if isinstance(data, list):
         return any(contains_null_values(item) for item in data)
-    return data is None  # Base case: If the value itself is None
+    return data is None  
 
 def main():
     os.makedirs("test_datasets/1_27_25", exist_ok=True)
@@ -129,10 +129,10 @@ def main():
                     response = client.generate_chatgpt_response(prompt)
                     
                     if response and not contains_null_values(response):  
-                        break  # Exit loop if response is valid
+                        break  
                     else:
                         console.print(f"[yellow]Invalid response (null values found). Retrying ({attempt+1}/{max_retries}) after 5 seconds...[/yellow]")
-                        time.sleep(5)  # Wait for 5 seconds before retrying
+                        time.sleep(5)  
 
                 except openai.APIConnectionError:
                     console.print("[red]Rate limit exceeded. Retrying in 20 seconds...[/red]")
@@ -140,7 +140,7 @@ def main():
 
                 except openai.APIError as e:
                     console.print(f"[red]OpenAI API Error: {e}[/red]")
-                    break  # Stop retrying if it's an API error
+                    break  
 
                 except openai.APITimeoutError as e:
                     console.print(f"[red]OpenAI API Timeout: {e}. Retrying in 5 seconds...[/red]")
@@ -148,17 +148,16 @@ def main():
 
                 except Exception as e:
                     console.print(f"[red]Unexpected error: {e}[/red]")
-                    break  # Stop retrying if it's an unknown error
+                    break  
 
                 attempt += 1
 
-            # If response is valid, update the corresponding section
+           
             if response and not contains_null_values(response):
                 song_data["prompts"][idx] = response
             else:
                 console.print(f"[yellow]Failed to get a valid response after {max_retries} retries. Keeping placeholders.[/yellow]")
 
-        # Mark song as processed
         song.update({"processed": True})
         processed_entry = {"id": song_id, "processed": True}
 
