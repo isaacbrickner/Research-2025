@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
 import os
-import pprint
 import time
 import openai
 from rich.console import Console
@@ -9,33 +8,26 @@ from rich.theme import Theme
 from util.generate_chat_gpt_descriptions import GenerateChatGPTDescriptions
 import util.prompts as Prompts
 
-pp = pprint.PrettyPrinter(4, compact=True)
-
-
 def load_json_files(directory):
-    """Load all JSON files from a directory and return a list of their contents, starting from the 100th file and descending."""
+    """Load all JSON files from a directory and return a list of their contents."""
     json_data = []
-    
+
     if not os.path.exists(directory):
         print(f"Directory '{directory}' does not exist.")
         return json_data
     
-    # Get all JSON files in directory
     json_files = sorted(
         [f for f in os.listdir(directory) if f.endswith('.json')],
-        key=lambda x: int(x.split('_')[-1].split('.')[0]),  # Sort numerically by chunk number
-        reverse=True  # Sort in descending order
+        key=lambda x: int(x.split('_')[-1].split('.')[0]),  
+        reverse=True  
     )
-
-    # Start from the 100th file
-    json_files = json_files[99:]
 
     for file in json_files:
         file_path = os.path.join(directory, file)
         try:
             with open(file_path, 'r') as f:
                 data = json.load(f)
-                json_data.extend(data)  # Merge all song lists into one
+                json_data.extend(data)  
         except json.JSONDecodeError:
             print(f"Error decoding JSON in file: {file_path}")
         except Exception as e:
@@ -43,12 +35,31 @@ def load_json_files(directory):
     
     return json_data
 
+def load_processed_ids(file_path):
+    """Load processed UUIDs from the tracking file."""
+    processed_ids = set()
+    try:
+        with open(file_path, "r") as f:
+            for line in f:
+                if line.strip():  
+                    processed_entry = json.loads(line.rstrip(',\n'))
+                    if processed_entry.get("processed"):
+                        processed_ids.add(processed_entry.get("id"))
+    except FileNotFoundError:
+        print("[red]Processed file not found. Starting fresh.[/red]")
+    return processed_ids
+
+def contains_null_values(data):
+    """Recursively check if any value in a dictionary or list is null."""
+    if isinstance(data, dict):
+        return any(contains_null_values(v) for v in data.values())
+    if isinstance(data, list):
+        return any(contains_null_values(item) for item in data)
+    return data is None  # Base case: If the value itself is None
 
 def main():
-    # Create directories if needed
     os.makedirs("test_datasets/1_27_25", exist_ok=True)
 
-    # Define custom theme for rich console output
     custom_theme = Theme({
         "repr.number": "white",
         "valence": "#FFE5B4",
@@ -58,125 +69,108 @@ def main():
     client = GenerateChatGPTDescriptions()
     console = Console(theme=custom_theme)
 
-    # Display welcome message
-    console.print("""Welcome to the Billboard Chart Annotator.\n
-    This application queries ChatGPT to gather pseudo-emotional values ([valence]valence[/valence], [arousal]arousal[/arousal]) 
-    for songs on the Billboard Hot 100 and Billboard 200 charts.""")
-
-    console.print("""       
-        - Method 1: Direct Estimate**  
-        ChatGPT provides subjective [arousal]arousal[/arousal] and [valence]valence[/valence] scores (0 to 1) for each song.
-
-        - Method 2: Descriptive Words**  
-        ChatGPT generates five descriptive words for each song, which are mapped to [arousal]arousal[/arousal] and [valence]valence[/valence] 
-          scores using the XANEW dataset. The scores are averaged for emotional estimation.
-
-        - Method 3: Long-form Description**  
-        ChatGPT creates a detailed emotional description of each song. Key words from the description are matched to XANEW scores, 
-          and the averages are used to determine emotional attributes.
-    """)
-
     console.print("Making test queries...")
 
-    # Initialize last processed ID
-    last_processed_id = None
+    processed_file = "test_datasets/test_bb_processed.json"
+    processed_ids = load_processed_ids(processed_file)
 
-    # Read processed data to find the last processed song
-    try:
-        with open("test_datasets/test_bb_processed.json", "r") as f:
-            for line in f:
-                if line.strip():  # Skip empty lines
-                    processed_entry = json.loads(line.rstrip(',\n'))
-                    if processed_entry.get("processed"):
-                        last_processed_id = processed_entry.get("id")
-    except FileNotFoundError:
-        console.print("[red]Processed file not found. Starting fresh.[/red]")
-
-    # Ensure last_processed_id is defined
-    if last_processed_id is None:
-        console.print("No processed ID found. Starting from the beginning.")
-    else:
-        console.print(f"Last processed ID: {last_processed_id}")
-
-    # Load all JSON files from split_files directory
     test_data = load_json_files("test_datasets/split_files")
 
     if not test_data:
         console.print("[red]No song data found. Exiting.[/red]")
         return
 
-    # Initialize processing state
-    start_processing = last_processed_id is None  # Start immediately if no ID was found
-    song_list = []
-
     for song in test_data:
-        if song.get("id") == last_processed_id:
-            start_processing = True
-            continue  # Skip the last processed song
+        song_id = song.get("id")
 
-        if start_processing:
-            console.print(f"Processing song: {song.get('Song')} by {song.get('Artist')}")
+        if song_id in processed_ids:
+            console.print(f"[yellow]Skipping duplicate: {song.get('Song')} by {song.get('Artist')}[/yellow]")
+            continue  
 
-            song_data = {
-                "prompts": [],
-                "song_name": song.get("Song"),
-                "artist_name": song.get("Artist"),
-                "date": song.get("Date")
-            }
+        console.print(f"Processing song: {song.get('Song')} by {song.get('Artist')}")
 
-            # Generate prompts for annotation
-            direct_estimation_prompt = Prompts.build_method_one_direct_estimation_prompt(song_data["song_name"], song_data["artist_name"])
-            five_word_description_prompt = Prompts.build_method_two_5_word_descriptions(song_data["song_name"], song_data["artist_name"])
-            long_form_description_prompt = Prompts.build_method_three_long_form_description_prompt(song_data["song_name"], song_data["artist_name"])
+        song_data = {
+            "prompts": [
+                {
+                    "valence": None,
+                    "arousal": None
+                },
+                {
+                    "words": None,
+                    "reasons": None
+                },
+                {
+                    "paragraph": None,
+                    "reasons": [None, None, None, None, None]
+                }
+            ],
+            "song_name": song.get("Song"),
+            "artist_name": song.get("Artist"),
+            "date": song.get("Date")
+        }
 
-            prompts = [direct_estimation_prompt, five_word_description_prompt, long_form_description_prompt]
+        direct_estimation_prompt = Prompts.build_method_one_direct_estimation_prompt(song_data["song_name"], song_data["artist_name"])
+        five_word_description_prompt = Prompts.build_method_two_5_word_descriptions(song_data["song_name"], song_data["artist_name"])
+        long_form_description_prompt = Prompts.build_method_three_long_form_description_prompt(song_data["song_name"], song_data["artist_name"])
 
-            # Get responses from ChatGPT
-            annotated_response = []
-            for prompt in prompts:
+        prompts = [direct_estimation_prompt, five_word_description_prompt, long_form_description_prompt]
+
+        for idx, prompt in enumerate(prompts):
+            if not prompt:
+                console.print(f"[red]Skipping empty prompt.[/red]")
+                continue
+
+            max_retries = 3
+            attempt = 0
+            response = None
+
+            while attempt < max_retries:
                 try:
                     response = client.generate_chatgpt_response(prompt)
-                    annotated_response.append(response)
+                    
+                    if response and not contains_null_values(response):  
+                        break  # Exit loop if response is valid
+                    else:
+                        console.print(f"[yellow]Invalid response (null values found). Retrying ({attempt+1}/{max_retries}) after 5 seconds...[/yellow]")
+                        time.sleep(5)  # Wait for 5 seconds before retrying
+
                 except openai.APIConnectionError:
                     console.print("[red]Rate limit exceeded. Retrying in 20 seconds...[/red]")
                     time.sleep(20)
-                    response = client.generate_chatgpt_response(prompt)
+
                 except openai.APIError as e:
                     console.print(f"[red]OpenAI API Error: {e}[/red]")
-                    return None
+                    break  # Stop retrying if it's an API error
+
                 except openai.APITimeoutError as e:
-                    console.print(f"[red]OpenAI API Timeout: {e}[/red]")
-                    return None
+                    console.print(f"[red]OpenAI API Timeout: {e}. Retrying in 5 seconds...[/red]")
+                    time.sleep(5)
+
                 except Exception as e:
-                    console.print(f"[red]An unexpected error occurred: {e}[/red]")
-                    return None
+                    console.print(f"[red]Unexpected error: {e}[/red]")
+                    break  # Stop retrying if it's an unknown error
 
-            # Mark song as processed
-            song.update({"processed": True})
+                attempt += 1
 
-            processed_id = {"id": song.get("id"), "processed": song.get("processed")}
+            # If response is valid, update the corresponding section
+            if response and not contains_null_values(response):
+                song_data["prompts"][idx] = response
+            else:
+                console.print(f"[yellow]Failed to get a valid response after {max_retries} retries. Keeping placeholders.[/yellow]")
 
-            # Append processed song data to file
-            with open('test_datasets/test_bb_processed.json', 'a') as f:
-                json.dump(processed_id, f)
-                f.write(',\n')
+        # Mark song as processed
+        song.update({"processed": True})
+        processed_entry = {"id": song_id, "processed": True}
 
-            # Build song data object
-            song_data["prompts"] = annotated_response
-            song_data["id"] = song.get("id")
+        with open(processed_file, 'a') as f:
+            json.dump(processed_entry, f)
+            f.write(',\n')
 
-            song_list.append(song_data)
-            # pp.pprint(song_list)
-            console.print(f"[green]Song processed: {song}[/green]")
+        with open('test_datasets/song_list_test_run.json', 'a') as outfile:
+            json.dump(song_data, outfile, indent=4)
+            outfile.write(',\n')
 
-            # Optional: Save song_list as batched JSON
-            # Save the song list to a single JSON file
-            with open('test_datasets/song_list_test_run.json', 'a') as outfile:
-                    json.dump(song_data, outfile, indent=4)
-                    outfile.write(',\n')
-            
-            # client.write_batched_json(song_list, 11, "test_datasets/test_run_2_10/", "hot100_batch_test_")  
-
+        console.print(f"[green]Song processed: {song.get('Song')} by {song.get('Artist')}[/green]")
 
 if __name__ == "__main__":
     main()
